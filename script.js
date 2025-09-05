@@ -56,3 +56,32 @@ function carconstructor(make, model, year, mile) {
 let car1 = new carconstructor('Toyota', 'Camry', 2020, 400);
 console.log(car1);
 car1.millage(400);
+
+let number = [1,2,3,4,5,6,7,8,9,10];
+console.log(number);
+
+
+let doubled = number.map(num=> num * 2);
+console.log(doubled);
+
+
+
+let products = [
+    {name: 'Laptop', price: 1000,},
+    {name: 'Phone', price: 500, },
+    {name: 'Shirt', price: 50, },
+    {name: 'Pants', price: 80, },
+    {name: 'Book', price: 20, },
+]
+
+let catalog = products.map((product, index )=> ({
+    id: `PROD-${(index + 1).toString().padStart(5, '0')}`,
+    name: product.name.toUpperCase(),
+    price: product.price,
+    discountedPrice: product.price * 0.5,
+    category: product.price > 100 ? 'expensive' : 'affordable',
+}));
+console.log(catalog);
+
+
+
