@@ -83,5 +83,33 @@ let catalog = products.map((product, index )=> ({
 }));
 console.log(catalog);
 
+/// document object model
+
+let targetElement = document.querySelector('#content');
+
+/// modifying textcontent
+
+targetElement.textContent= 'New Text content';
+
+targetElement.classList.add('highlight');
 
 
+let text = document.getElementById('para');
+text.classList.add('important');
+text.classList.remove('important');
+
+text.classList.toggle('border-state');
+
+
+let form = document.getElementById('form');
+let nome = document.getElementById('name');
+let password = document.getElementById('password');
+let button = document.getElementById('btn');
+
+let isValidPassword = password.value.length >= 8 || password.value.length <= 20;
+
+button.addEventListener('click', function(Event){
+    Event.preventDefault();
+    
+        alert(`Welcome ${nome.value}, your password is ${isValidPassword ? 'valid' : 'invalid'} and it is ${password.value.padStart(22, '*')}`);
+});

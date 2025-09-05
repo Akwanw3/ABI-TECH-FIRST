@@ -4,8 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .highlight{
+            background-color: yellow;
+        }
+        .important{
+            font-weight: bold;
+        }
+        .border-state{
+            border-left: 2px solid blue;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: blueviolet;
+        }
+        #form{
+            background-color: white;
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            justify-content: center;
+            align-items: center;
+            justify-self: center;
+        }
+    </style>
 </head>
 <body>
-    
+    <form id="form">
+        <h1>login</h1>
+        <label for="name">Name</label><br>
+        <input type="text" name="" id="name"><br>
+        <label for="password">password</label><br>
+        <input type="password" name="" id="password"><span style="cursor:pointer;"> &#128065; </span> <!-- 👁 eye icon -->
+
+        <br><br>
+        <button type="submit" id="btn">Submit</button>
+    </form><br><br>
+   <h1 id="content">This is my header</h1> 
+
+   <p id="para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur animi temporibus ea voluptatum, error neque commodi, molestiae blanditiis nesciunt pariatur omnis magni atque a! Nostrum iste minus saepe harum reprehenderit?</p>
+   <script src="script.js"></script>
 </body>
 </html>
