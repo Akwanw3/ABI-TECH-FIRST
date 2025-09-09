@@ -113,3 +113,114 @@ button.addEventListener('click', function(Event){
     
         alert(`Welcome ${nome.value}, your password is ${isValidPassword ? 'valid' : 'invalid'} and it is ${password.value.padStart(22, '*')}`);
 });
+
+
+//Async js
+
+function calculatesum(a, b, callback){
+    let result = a + b;
+    callback(result);
+}
+
+function orderfood(callback){
+    setTimeout(()=>{
+        console.log('food has been ordered');
+        callback();
+    }, 2000);
+}
+
+function preparefood(callback){
+    setTimeout(()=>{
+        console.log('food has been prepared');
+        callback();
+    }, 3000);
+}
+function deliverfood(){
+    setTimeout(()=>{
+        console.log('food has been delivered to customer');
+        callback()
+    }, 4000);
+}
+orderfood(()=>{
+    preparefood(()=>{
+        deliverfood(()=>{
+            console.log('All done. Customer is satisfied.');
+            
+        })
+    })
+})
+        /// promises
+       /// pending , resolve , reject
+
+       function makepizza(){
+        return new Promise((resolve, reject)=>{
+            let success = Math.random() > 0.5;
+            setTimeout(()=>{
+                if(success){
+                    resolve('Pizza is ready!');
+                }else{
+                    reject('Failed to make pizza.');
+                }
+       }, 2000);
+    });
+   }
+    makepizza()
+    .then((message)=>{
+        console.log(message);
+    })
+    .catch((error )=>{
+        console.log(error);
+        
+    })
+
+
+    function orderfoood(){
+        return Promise.resolve('Food has been ordered');    
+    }
+    function preparefoood(){
+        return Promise.resolve('Food has been prepared');
+    }   
+    function deliverfoood(){
+        return Promise.resolve('Food has been delivered to customer');
+    }
+    orderfoood()
+    .then((message)=>{
+        console.log(message);
+        return preparefoood();
+    })
+    .then((message)=>{
+        console.log(message);
+        return deliverfoood();
+    })
+    .then((message)=>{
+        console.log(message);
+        console.log('All done. Customer is satisfied.');
+    })
+    .catch((error)=>{
+        console.log('something went wrong');
+    });
+
+
+
+    /// async await
+    function delay(ms){
+        return new Promise((resolve)=> setTimeout(resolve, ms));
+    }
+    async function makecoffee(){
+        console.log('Starting to make coffee...');
+        await delay(2000);
+        console.log('Grinding coffee beans...');
+        await delay(2000);
+        console.log('Brewing coffee...');
+        await delay(2000);
+        console.log('Coffee is ready!');
+    }
+    async function servecoffee(){
+        try{
+            let coffee = await makecoffee()
+            console.log('serving', coffee)
+        }catch(error){
+            console.log('error mkaing coffee:',error)
+        }
+    }
+    
